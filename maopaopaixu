@@ -1,0 +1,22 @@
+
+//  相邻两个元素比较，将小的元素逐渐往前移动
+var arr=new Array(6,4,5,3,8,7);
+
+for(var i=0;i<arr.length-1;i++)
+{
+// 从后往前遍历
+	for(var j=arr.length-1;j>i;j--)
+	{
+		if(arr[j]<arr[j-1])
+		{
+				var temp=arr[j];
+				arr[j]=arr[j-1];
+				arr[j-1]=temp;
+		}
+		
+	}
+alert(arr[i]);
+	
+}
+
+alert(arr);
