@@ -1,0 +1,23 @@
+var arr=new Array(6,4,5,3,8,7);
+var d=arr.length/2;
+while(true)
+{
+
+	for(var i=0;i<d;i++)
+	{
+			for(var j=i;j+d<arr.length;j=j+d)
+			{
+					var temp;
+					if(arr[j+d]<arr[j])
+					{
+						temp=arr[j+d];
+						arr[j+d]=arr[j];
+						arr[j]=temp;
+					}
+			}
+
+	}
+			if(d==1)break;
+			d--;
+}
+alert(arr);
