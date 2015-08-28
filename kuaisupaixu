@@ -22,9 +22,9 @@ function sort(arr,low,high)
 					i++;
 				if(i<j)
 				{
-				  var temp=arr[j];
-					arr[j]=arr[i];
-					arr[i]=temp;
+				  var temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
 					j--;
 				}
 		}
