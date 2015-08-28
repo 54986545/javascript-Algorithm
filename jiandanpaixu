@@ -1,0 +1,21 @@
+var arr=new Array(72,6,57,88);
+
+	var len=arr.length;
+	for(var i=0;i<len;i++){
+			//记录当前位置
+			var position=i;
+			//找出最小的数，并用position指向最小数的位置
+			for(var j=i+1;j<len;j++){
+				if(arr[j]<arr[position]){
+				position=j;
+			}//endif
+		}//endfor
+		
+		//交换最小数data[position]和第i位数的位置
+		var temp=arr[i];
+		arr[i]=arr[position];
+		arr[position]=temp;
+		
+	}//endfor
+
+alert(arr);
