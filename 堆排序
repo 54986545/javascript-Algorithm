@@ -1,4 +1,5 @@
 // 面向对象是写法，先构建堆，然后进行排序
+// 构建堆时，注意只构建非叶子节点，所以选取的都是(this.length/2)-1
 Array.prototype.buildMaxHeap=function(){
 		for(var i=Math.floor(this.length/2)-1;i>=0;i--){
 				this.heapAdjust(i,this.length);
