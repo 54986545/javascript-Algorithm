@@ -1,0 +1,36 @@
+// 构建有序数据
+// 有序数据a、有序数据b，插入数组c，起始序号，终止序号
+Array.prototype.MemeryArray=function(left,right){
+		var　result=[];
+		while(left.length>0&&right.length>0){
+				if(left[0]<right[0]){
+						/*shift()方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。*/
+						result.push(left.shift());
+				}else{
+						result.push(right.shift());
+				}
+		}
+				return　result.concat(left).concat(right);
+		
+};
+ 
+ 
+Array.prototype.merge_sort=function(){
+		if(this.length==1){
+				return this;
+		}
+		var　middle=Math.floor(this.length/2),
+		left=this.slice(0,middle),
+		right=this.slice(middle);
+		return　this.MemeryArray(left.merge_sort(),right.merge_sort());
+};
+
+
+ 
+	var a=new Array();
+	[].push.apply(a,[16,7,8,20,17,3]);
+	var b=new Array();
+
+	//console.log(a.merge_sort(a,0,a.length,b));
+	console.log(a.merge_sort());
+	console.log(a);
