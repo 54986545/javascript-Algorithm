@@ -1,5 +1,6 @@
 // 构建有序数据
-// 有序数据a、有序数据b，插入数组c，起始序号，终止序号
+// 有序数据left、有序数据right
+//shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
 Array.prototype.MemeryArray=function(left,right){
 		var　result=[];
 		while(left.length>0&&right.length>0){
@@ -13,8 +14,8 @@ Array.prototype.MemeryArray=function(left,right){
 				return　result.concat(left).concat(right);
 		
 };
- 
- 
+ //slice返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。
+ //请注意，该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()。
 Array.prototype.merge_sort=function(){
 		if(this.length==1){
 				return this;
