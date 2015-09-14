@@ -50,3 +50,22 @@ var arry=[6,4,5,3,8,7,1,9,2];
       }  
     }  
 alert(arry);
+
+//第三种 先将最小的数据保存起来，后面的如果有一个比他大的则插入，后面的相应调整
+//即每次a[i]先和前面一个数据a[i-1]比较，
+//如果a[i] > a[i-1]说明a[0…i]也是有序的，无须调整。
+//否则就令j=i-1,temp=a[i]。然后一边将数据a[j]向后移动一边向前搜索，
+//当有数据a[j]<a[i]时停止并将temp放到a[j + 1]处。arry[j] < temp
+var arry=[6,4,5,3,8,7,1,9,2];
+
+    var i, j;  
+   for (i = 1; i < arry.length; i++)  
+       if (arry[i] < arry[i - 1])  
+        {  
+            var temp = arry[i];  
+            for (j = i - 1; j >= 0 && arry[j] > temp; j--)  
+              arry[j + 1] = arry[j];  
+           arry[j + 1] = temp;  
+       }
+
+alert(arry);
