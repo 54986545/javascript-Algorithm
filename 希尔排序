@@ -58,3 +58,37 @@ while(true)
 			d=Math.floor(d/2);
 }
 alert(arr);
+
+
+// 第三种希尔排序
+// 很明显，上面的shellsort1代码虽然对直观的理解希尔排序有帮助，但代码量太大了，不够简洁清晰。
+// 因此进行下改进和优化，以第二次排序为例，原来是每次从1A到1E，从2A到2E，可以改成从1B开始，先和1A比较，然后取2B与2A比较，
+// 再取1C与前面自己组内的数据比较…….。
+// 这种每次从数组第gap个元素开始，每个元素与自己组内的数据进行直接插入排序显然也是正确的。
+var arr=new Array(6,4,15,5,11,1,3,9,8,7);
+var d=arr.length/2;
+while(true)
+{
+
+	for(var i=0;i<d;i++)
+	{
+			for(var j=d;j<arr.length;j++)
+			{
+					var temp;
+					if(arr[j]<arr[j-d])
+					{
+						temp=arr[j];
+						k=j-d;
+						while(k>=0&&arr[k]>temp)
+						{
+								arr[k+d]=arr[k];
+								k=k-d;
+						}
+						arr[k+d]=temp;
+					}
+			}
+
+	}
+			if(d<1)break;
+			d=Math.floor(d/2);
+}
