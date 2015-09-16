@@ -20,6 +20,10 @@ while(true)
 
 	}
 			if(d==1)break;
-			d--;
+			d=Math.flood(d/2);
+			Math.flood向下取整
+			Math.ceil向上取整
+			Math.round四舍五入
+			
 }
 alert(arr);
