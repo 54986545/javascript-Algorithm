@@ -70,8 +70,7 @@ var d=arr.length/2;
 while(true)
 {
 
-	for(var i=0;i<d;i++)
-	{
+
 			for(var j=d;j<arr.length;j++)
 			{
 					var temp;
@@ -88,7 +87,7 @@ while(true)
 					}
 			}
 
-	}
+	
 			if(d<1)break;
 			d=Math.floor(d/2);
 }
