@@ -29,4 +29,32 @@ while(true)
 }
 alert(arr);
 
+// 希尔直接插入排序
+var arr=new Array(6,4,15,5,11,1,3,9,8,7);
+var d=arr.length/2;
+while(true)
+{
 
+	for(var i=0;i<d;i++)
+	{
+			for(var j=i+d;j<arr.length;j=j+d)
+			{
+					var temp;
+					if(arr[j-d]>arr[j])
+					{
+						temp=arr[j];
+						k=j-d;
+						while(k>=0&&arr[k]>temp)
+						{
+								arr[k+d]=arr[k];
+								k=k-d;
+						}
+						arr[k+d]=temp;
+					}
+			}
+
+	}
+			if(d<1)break;
+			d=Math.floor(d/2);
+}
+alert(arr);
