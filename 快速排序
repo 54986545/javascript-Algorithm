@@ -2,6 +2,7 @@
 
 var arr=new Array(26,21,17,30,28,9);
 sort(arr,0,arr.length-1);
+// 1填坑法
 // 快速排序需要递归
 
 function sort(arr,low,high)
@@ -28,6 +29,35 @@ function sort(arr,low,high)
 					j--;
 				}
 		}
+	if(i>low)arguments.callee(arr,low,i-1);
+　if(j<high)arguments.callee(arr,i+1,high);
+}
+alert(arr);
+
+
+// 2大小交换法
+var arr=new Array(26,21,17,30,28,9,10,15,13,66,34,536,67,33,23,21,1);
+sort(arr,0,arr.length-1);
+// 快速排序需要递归
+
+function sort(arr,low,high)
+{
+	var i=low,j=high,x=arr[low];
+		while(i<j)
+		{
+				while(i<j&&arr[j]>=x)
+					j--;
+
+				while(i<j&&arr[i]<=x)
+					i++;
+				if(i<j){
+				  var temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+		}
+		arr[low]=arr[i];
+		arr[i]=x;
 	if(i>low)arguments.callee(arr,low,i-1);
 　if(j<high)arguments.callee(arr,i+1,high);
 }
