@@ -35,3 +35,48 @@ Array.prototype.merge_sort=function(){
 	//console.log(a.merge_sort(a,0,a.length,b));
 	console.log(a.merge_sort());
 	console.log(a);
+
+
+//第二种
+
+function merryArray(a,first,mid,end,tempArr){
+		var k=0;m=mid,n=end,f=first;
+		while(first<=m&&mid+1<=n){
+				if(a[first]<a[mid+1]){
+					tempArr[k]=a[first];
+					k++;
+					first++;
+				}
+				else{
+					tempArr[k]=a[mid+1];
+					k++;
+					mid++;
+				}
+		}
+		while(first<=m){
+					tempArr[k]=a[first];
+					k++;
+					first++;
+		}
+		while(mid+1<=n){
+					tempArr[k]=a[mid+1];
+					k++;
+					mid++;
+		}
+	 for (i = 0; i < k; i++)  
+		  a[f + i] = tempArr[i]; 
+
+}
+function mergesort(a,first,last,temp){
+		if(first<last){
+				var mid =Math.floor((first+last)/2); 
+				arguments.callee(a, first, mid, temp);
+				arguments.callee(a, mid+1, last, temp);
+				merryArray(a, first, mid, last, temp);
+		}
+}
+var b=new Array();
+var a=new Array();
+a.push(16,7,8,20,17,3,44,21,34,56,11,56,4,2,1);
+mergesort(a,0,a.length-1,b);
+alert(a);
