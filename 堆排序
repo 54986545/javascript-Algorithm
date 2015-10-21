@@ -44,3 +44,60 @@ Array.prototype.heapAdjust=function(i,j){
 	var a=new Array();
 	[].push.apply(a,[2,3,89,57,23,72,43,105]);
 	console.log(a.heapSort());
+	
+	
+//第二种
+	<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery图片轮播(焦点图)插件</title>
+
+<script src="jquery-2.1.1.js" type="text/javascript"></script>
+
+<script>
+var arr=[16,7,3,20,17,8];
+function goujian(arr){
+	var len=Math.floor(arr.length/2)-1;
+	for(var i=len;i>=0;i--){
+			adjust(arr,i,arr.length);
+	}
+}
+function swap(i,j,arr){
+		var temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+}
+function adjust(arr,i,len){
+		var largest=i;
+		var left=i*2+1;
+		var right=i*2+2;
+		if(left<len&&arr[left]>arr[largest]){
+				largest=left;
+		}
+		if(right<len&&arr[right]>arr[largest]){
+				largest=right;
+		}
+		if(i!=largest){
+				swap(i,largest,arr);
+				adjust(arr,largest,len);
+		}
+}
+function tiaozheng(arr){
+		goujian(arr);
+		for(var i=arr.length-1;i>0;i--){
+				swap(0,i,arr);
+				adjust(arr,0,i);
+		}
+}
+
+tiaozheng(arr);
+alert(arr);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
+
